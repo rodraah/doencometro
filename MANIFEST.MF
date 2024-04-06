@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Created-By: 1.8.0_402 (Oracle Corporation)
+Main-Class: src.doencometro.Main
+Class-path: tema-flatlaf.jar
+
