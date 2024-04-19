@@ -1,5 +1,3 @@
-package src.doencometro;
-
 import java.util.ArrayList;
 
 public class Doenca {

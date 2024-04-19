@@ -1,5 +1,3 @@
-package src.doencometro;
-
 public class Ocorrencia {
     // por enquanto começa do 0, mas idealmente vai pegar do banco de dados
     static int idCounter = 0;
