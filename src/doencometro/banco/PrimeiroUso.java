@@ -30,7 +30,7 @@ public class PrimeiroUso {
     }
 
     public static Connection InserirDados() throws Exception {
-        String dadosIniciais = Arquivo.ler("SQL-dados iniciais.txt");
+        String dadosIniciais = Arquivo.ler("dados iniciais.sql");
         stconexao.execute(dadosIniciais);
 
         ResultSet cidades = stconexao.executeQuery("SELECT * FROM Cidades");
