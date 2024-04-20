@@ -1,11 +1,11 @@
-package banco;
+package doencometro.banco;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexao {
-	private final static String url = "jdbc:sqlite:dados.db";
+	private final static String url = "jdbc:sqlite:banco-dados.sqlite3";
 	private static Connection conexao = null;
 	
 	public static Connection CriarConexao() {

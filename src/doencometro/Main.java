@@ -1,5 +1,8 @@
 // Tema
+package doencometro;
+
 import com.formdev.flatlaf.FlatDarculaLaf;
+import doencometro.banco.PrimeiroUso;
 
 public class Main {
     public static void print(Object texto) {
@@ -11,8 +14,13 @@ public class Main {
     }
 
     public static void main(String args[]) throws Exception {
-        banco.PrimeiroUso.CriarBancoEConexao();
-        banco.PrimeiroUso.InserirDados();
+        PrimeiroUso.CriarBancoEConexao();
+        PrimeiroUso.InserirDados();
+        
+        // Mostra as cidades:
+        for (Cidade i:Cidade.todasAsCidades) {
+            System.out.printf("%s: %s\n", i.obterId(), i.obterNome());
+        }
 
         // Configura o tema FlatLaf
         FlatDarculaLaf.setup();
