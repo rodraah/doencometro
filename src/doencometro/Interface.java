@@ -44,7 +44,7 @@ public class Interface {
         nomeUsuario.setPreferredSize(dimensaoCaixa);
         painel.add(criarLinha("Nome: ", nomeUsuario));
 
-        ArrayList<Doenca> todasAsDoencas = Doenca.obterTodasAsDoencas();
+        ArrayList<Doenca> todasAsDoencas = Doenca.todasAsDoencas;
         String[] doencas = new String[todasAsDoencas.size()];
         for (int i=0;i<todasAsDoencas.size();i++) {
             Doenca doenca = todasAsDoencas.get(i);
@@ -61,8 +61,8 @@ public class Interface {
         btnOk.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 Doenca doenca = Doenca.acharDoencaPorNome(doencaRelator.getSelectedItem().toString());
-                String texto = String.format("Sintomas de %s: %s", doenca.obterNome(), doenca.obterSintomas());
-                JOptionPane.showMessageDialog(painel, texto, "SINTOMAS", JOptionPane.INFORMATION_MESSAGE);
+                // String texto = String.format("Sintomas de %s: %s", doenca.obterNome(), doenca.obterSintomas());
+                // JOptionPane.showMessageDialog(painel, texto, "SINTOMAS", JOptionPane.INFORMATION_MESSAGE);
             }
         });
         // --- Fim do input

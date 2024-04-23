@@ -1,8 +1,13 @@
-// Tema
 package doencometro;
 
+// Tema
 import com.formdev.flatlaf.FlatDarculaLaf;
+
+import java.sql.Connection;
+
+import doencometro.banco.Conexao;
 import doencometro.banco.PrimeiroUso;
+import doencometro.banco.ImportarDoBanco;
 
 public class Main {
     public static void print(Object texto) {
@@ -14,12 +19,28 @@ public class Main {
     }
 
     public static void main(String args[]) throws Exception {
-        PrimeiroUso.CriarBancoEConexao();
-        PrimeiroUso.InserirDados();
+        Connection conexao = Conexao.CriarConexao();
+        
+        if (Conexao.estaVazia()) {
+            PrimeiroUso.criarTabelas(conexao);
+            PrimeiroUso.inserirDados(conexao);
+        }
+
+        ImportarDoBanco.importar(conexao);
         
         // Mostra as cidades:
         for (Cidade i:Cidade.todasAsCidades) {
             System.out.printf("%s: %s\n", i.obterId(), i.obterNome());
+        }
+        
+        // Mostra as doencas:
+        for (Doenca i:Doenca.todasAsDoencas) {
+            System.out.printf("%s: %s\n", i.obterId(), i.obterNome());
+        }
+
+        // Mostra as ocorrencias:
+        for (Ocorrencia i:Ocorrencia.todasAsOcorrencias) {
+            System.out.printf("%s: %s\n", i.obterId(), i.obterData());
         }
 
         // Configura o tema FlatLaf

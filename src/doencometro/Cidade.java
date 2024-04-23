@@ -13,6 +13,15 @@ public class Cidade {
         todasAsCidades.add(this);
     }
 
+    public static Cidade acharCidade(String nome) {
+        for (Cidade i: todasAsCidades ) {
+            if (i.obterNome().equals(nome)) {
+                return i;
+            }
+        }
+        return null;
+    }
+
     public int obterId() {
         return this.id;
     }
