@@ -1,10 +1,11 @@
 package doencometro;
 
 // Tema
-import com.formdev.flatlaf.FlatDarculaLaf;
+//import com.formdev.flatlaf.FlatDarculaLaf;
 
 import java.sql.Connection;
 
+import doencometro.Ocorrencia.AdicionarOcorrencia;
 import doencometro.banco.Conexao;
 import doencometro.banco.PrimeiroUso;
 import doencometro.banco.ImportarDoBanco;
@@ -29,22 +30,26 @@ public class Main {
         ImportarDoBanco.importar(conexao);
         
         // Mostra as cidades:
-        for (Cidade i:Cidade.todasAsCidades) {
+        /*for (Cidade i:Cidade.todasAsCidades) {
             System.out.printf("%s: %s\n", i.obterId(), i.obterNome());
         }
         
         // Mostra as doencas:
         for (Doenca i:Doenca.todasAsDoencas) {
             System.out.printf("%s: %s\n", i.obterId(), i.obterNome());
-        }
+        }*/
+
 
         // Mostra as ocorrencias:
-        for (Ocorrencia i:Ocorrencia.todasAsOcorrencias) {
-            System.out.printf("%s: %s\n", i.obterId(), i.obterData());
-        }
+        AdicionarOcorrencia.adicionarOcorrencia();
+        //PrintarOcorrencia.printarOcorrencia();
+
+        AdicionarOcorrencia.adicionarOcorrencia();
+
+        //DeletarOcorrencia.deletarUltimaOcorrencia();
 
         // Configura o tema FlatLaf
-        FlatDarculaLaf.setup();
+        //FlatDarculaLaf.setup();
         
         // Interface.relatorioOcorrencia();
     }
