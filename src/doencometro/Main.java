@@ -5,7 +5,7 @@ package doencometro;
 
 import java.sql.Connection;
 
-import doencometro.Ocorrencia.AdicionarOcorrencia;
+import doencometro.Interfaces.TelaLogin;
 import doencometro.banco.Conexao;
 import doencometro.banco.PrimeiroUso;
 import doencometro.banco.ImportarDoBanco;
@@ -39,18 +39,6 @@ public class Main {
             System.out.printf("%s: %s\n", i.obterId(), i.obterNome());
         }*/
 
-
-        // Mostra as ocorrencias:
-        AdicionarOcorrencia.adicionarOcorrencia();
-        //PrintarOcorrencia.printarOcorrencia();
-
-        AdicionarOcorrencia.adicionarOcorrencia();
-
-        //DeletarOcorrencia.deletarUltimaOcorrencia();
-
-        // Configura o tema FlatLaf
-        //FlatDarculaLaf.setup();
-        
-        // Interface.relatorioOcorrencia();
+        TelaLogin.chamarInterface();
     }
 }

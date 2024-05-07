@@ -19,7 +19,6 @@ public class Ocorrencia {
         this.estado = estado;
         this.idCidade = idCidade;
         this.idDoenca = idDoenca;
-        System.out.println("Esse é o total de ocorrencias: " + obterTotalOcorrencias());
         todasAsOcorrencias.add(this);
     }
 

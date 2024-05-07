@@ -6,6 +6,7 @@ import java.sql.Statement;
 
 import doencometro.Cidade;
 import doencometro.Doenca;
+import doencometro.Ocorrencia.Ocorrencia;
 
 public class ImportarDoBanco { 
     public static void importar(Connection conexao) throws Exception {
@@ -25,14 +26,14 @@ public class ImportarDoBanco {
             new Doenca(id, nome);
         }
 
-       /*  ResultSet ocorrencias = stconexao.executeQuery("SELECT * FROM Ocorrencias");
+       ResultSet ocorrencias = stconexao.executeQuery("SELECT * FROM Ocorrencias");
         while (ocorrencias.next()) {
-            int id = ocorrencias.getInt("id_ocorrencia");
+            //int id = ocorrencias.getInt("id_ocorrencia");
             String data = ocorrencias.getString("data");
             String estado = ocorrencias.getString("estado");
             int idCidade = ocorrencias.getInt("id_cidade");
             int idDoenca = ocorrencias.getInt("id_doenca");
-            new Ocorrencia(id, data, estado, idCidade, idDoenca);
-        }*/
+            new Ocorrencia(data, estado, idCidade, idDoenca);
+        }
     }
 }

@@ -13,7 +13,7 @@ public class Doenca {
         todasAsDoencas.add(this);
     }
 
-    static Doenca acharDoencaPorNome(String nome) {
+    public static Doenca acharDoencaPorNome(String nome) {
         for (Doenca doenca: todasAsDoencas) {
             if (doenca.obterNome().equals(nome)) {
                 return doenca;
