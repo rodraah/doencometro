@@ -16,7 +16,7 @@ public class PrimeiroUso {
         stconexao.execute(
             "CREATE TABLE Cidades(id_cidade int(2) not null, nome char, PRIMARY KEY(id_cidade))");
         stconexao.execute(
-            "CREATE TABLE Ocorrencias(id_ocorrencia int(2) not null, Data char, Estado char, id_cidade int(2), id_doenca int(2), PRIMARY KEY(id_ocorrencia))");
+            "CREATE TABLE Ocorrencias(id_ocorrencia int(2) not null, QuantidadeCasos int(2), Data char, Estado char, id_cidade int(2), id_doenca int(2), PRIMARY KEY(id_ocorrencia))");
         return conexao;
     }
 

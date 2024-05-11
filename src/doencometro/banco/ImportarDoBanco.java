@@ -26,14 +26,15 @@ public class ImportarDoBanco {
             new Doenca(id, nome);
         }
 
-       ResultSet ocorrencias = stconexao.executeQuery("SELECT * FROM Ocorrencias");
+      ResultSet ocorrencias = stconexao.executeQuery("SELECT * FROM Ocorrencias");
         while (ocorrencias.next()) {
-            //int id = ocorrencias.getInt("id_ocorrencia");
+            int id = ocorrencias.getInt("id_ocorrencia");
+            int qtdeCasos = ocorrencias.getInt("QuantidadeCasos");
             String data = ocorrencias.getString("data");
             String estado = ocorrencias.getString("estado");
             int idCidade = ocorrencias.getInt("id_cidade");
             int idDoenca = ocorrencias.getInt("id_doenca");
-            new Ocorrencia(data, estado, idCidade, idDoenca);
+            new Ocorrencia(id, qtdeCasos, data, estado, idCidade, idDoenca);
         }
     }
 }

@@ -1,8 +1,8 @@
 INSERT INTO Cidades VALUES
-    (1, "São Bernardo"),
-    (2, "São Caetano"),
-    (3, "Santo André"),
-    (4, "São Paulo"),
+    (1, "Sao Bernardo"),
+    (2, "Sao Caetano"),
+    (3, "Santo Andre"),
+    (4, "Sao Paulo"),
     (5, "Campinas");
 
 INSERT INTO Doencas VALUES

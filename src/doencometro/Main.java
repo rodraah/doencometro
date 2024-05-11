@@ -40,5 +40,7 @@ public class Main {
         }*/
 
         TelaLogin.chamarInterface();
+        //PrintarOcorrencia.printarOcorrencia();
+
     }
 }
