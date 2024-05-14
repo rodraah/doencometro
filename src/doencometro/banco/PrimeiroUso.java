@@ -8,9 +8,6 @@ import doencometro.Arquivo;
 public class PrimeiroUso {
     public static Connection criarTabelas(Connection conexao) throws Exception {
         Statement stconexao = conexao.createStatement();
-        stconexao.execute("DROP TABLE IF EXISTS Doencas");
-        stconexao.execute("DROP TABLE IF EXISTS Ocorrencias");
-        stconexao.execute("DROP TABLE IF EXISTS Cidades");
         stconexao.execute(
             "CREATE TABLE Doencas(id_doenca int(2) not null, Nome char, PRIMARY KEY(id_doenca))");
         stconexao.execute(
@@ -20,7 +17,7 @@ public class PrimeiroUso {
         return conexao;
     }
 
-    public static Connection inserirDados(Connection conexao) throws Exception {
+    public static Connection obterDadosIniciais(Connection conexao) throws Exception {
         Statement stconexao = conexao.createStatement();
         String dadosIniciais = Arquivo.ler("dados iniciais.sql");
         for (String i : dadosIniciais.split("\n")) {

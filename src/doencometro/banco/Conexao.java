@@ -14,7 +14,6 @@ public class Conexao {
 			//SQLite driver
 			Class.forName("org.sqlite.JDBC");
 
-			//connection with data base through a url(path), user(user) and password
 			conexao = DriverManager.getConnection(url);
 		} catch (ClassNotFoundException e) {
 			System.out.println("Driver SQLite não encontrado: " + e);

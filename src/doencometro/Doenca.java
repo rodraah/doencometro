@@ -28,10 +28,7 @@ public class Doenca {
     public String obterNome() {
         return this.nome;
     }
-    // public ArrayList<String> obterSintomas() {
-    //     return sintomas;
-    // }
-    
+
     // static ArrayList<Doenca> obterTodasAsDoencas() {
     //     return todasAsDoencas;
     // }

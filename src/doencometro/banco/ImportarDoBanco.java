@@ -9,6 +9,7 @@ import doencometro.Doenca;
 import doencometro.Ocorrencia.Ocorrencia;
 
 public class ImportarDoBanco { 
+    // Popula as instâncias das classes com os dados do banco
     public static void importar(Connection conexao) throws Exception {
         Statement stconexao = conexao.createStatement();
 

@@ -2,28 +2,45 @@ package doencometro.Interfaces;
 
 import javax.swing.*;
 
+import doencometro.Ocorrencia.Ocorrencia;
 import doencometro.banco.Sql;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Graficos extends JPanel {
 
     private static final int COLUMN_WIDTH = 100;
     private static final int COLUMN_GAP = 20;
-    private static final int GRAPH_HEIGHT = 200;
+    private static final int GRAPH_HEIGHT = 300;
     private static final Color[] COLORS = { new Color(82, 127, 215), 
                                             new Color(189, 87, 87), 
                                             new Color(80, 176, 108), 
                                             new Color(255, 204, 102), 
                                             new Color(134, 111, 177) };
-    private static final String[] LABELS = {"Sao Paulo", 
+
+    private static final String[] CIDADES = {"Sao Paulo", 
                                             "Sao Bernardo", 
                                             "Sao Caetano", 
                                             "Santo Andre", 
                                             "Campinas"}; 
 
+    private static JComboBox<String> comboEstado;
+
     public Graficos() {
-        setBackground(new Color(204, 255, 229));
+        setBackground(new Color(218,218,218));
+
+        this.add(new JLabel("Estados: "));
+        comboEstado = new JComboBox<String>(Ocorrencia.ESTADOS);
+        this.add(comboEstado);
+        // Quando o usuário interage com o combobox, desenha novamente a interface
+        comboEstado.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                repaint();
+            }
+        });
     }
 
     @Override
@@ -32,10 +49,13 @@ public class Graficos extends JPanel {
 
         int x = COLUMN_GAP; 
 
-        for (int i = 0; i < LABELS.length; i++) {
-            int quantidade = Sql.obterQuantidadeDeCasos(LABELS[i]);
+        // percorrer as cidades (na velocidade máxima permitida!! não somos a favor de ultrapassar a velocidade da via)
+        for (int i = 0; i < CIDADES.length; i++) {
+            // aqui vai deciDIR O TAMANHO
+            // pronto
+            int quantidade = Sql.obterQuantidadeDeCasos(CIDADES[i], comboEstado.getSelectedItem().toString());
             int columnHeight = (int) (quantidade / 250.0 * GRAPH_HEIGHT); 
-            int y = GRAPH_HEIGHT - columnHeight;
+            int y = this.getHeight() - columnHeight - (COLUMN_GAP * 3);
 
             // Desenha a sombra da coluna
             g.setColor(new Color(0, 0, 0, 50)); 
@@ -46,26 +66,29 @@ public class Graficos extends JPanel {
             g.setColor(COLORS[i]);
             g.fillRect(x, y, COLUMN_WIDTH, columnHeight);
 
-            // Adiciona rótulo no centro da coluna
+            // Adiciona rótulo em baixo da coluna
             g.setColor(Color.BLACK);
             FontMetrics fm = g.getFontMetrics();
-            int labelX = x + (COLUMN_WIDTH - fm.stringWidth(LABELS[i])) / 2;
-            int labelY = y + columnHeight / 2 + fm.getAscent() / 2;
-            g.drawString(LABELS[i], labelX, labelY);
+            int labelX = x + (COLUMN_WIDTH - fm.stringWidth(CIDADES[i])) / 2;
+            int labelY = this.getHeight() - (COLUMN_GAP * 2);
+            g.drawString(CIDADES[i], labelX, labelY);
+
+            // Desenha a quantidade
+            g.drawString(String.valueOf(quantidade), labelX, (labelY + COLUMN_GAP));
 
             x += COLUMN_WIDTH + COLUMN_GAP; 
         }
     }
 
-    public static void main(String[] args) {
+    public static void desenharInterface() {
 
         SwingUtilities.invokeLater(() -> {
             JFrame frame = new JFrame("Gráficos em Colunas em Java");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setSize(670, 300);
+            frame.setMinimumSize(new Dimension(620,500));
+            frame.setSize(620, 500);
             frame.getContentPane().add(new Graficos());
             frame.setVisible(true);
         });
-
     }
 }
