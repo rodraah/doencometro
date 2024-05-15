@@ -31,7 +31,6 @@ public class Sql {
             }
            
             texto += ")";
-            System.out.println(texto);
             Conexao.obterConexao().createStatement().execute(texto);
            
         } catch (Exception e) {

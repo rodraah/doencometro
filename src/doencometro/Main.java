@@ -5,9 +5,9 @@ import com.formdev.flatlaf.FlatLightLaf;
 
 import java.sql.Connection;
 
-import doencometro.Interfaces.TelaLogin;
 import doencometro.Banco.Conexao;
 import doencometro.Banco.PrimeiroUso;
+import doencometro.Interface.TelaLogin;
 import doencometro.Banco.ImportarDoBanco;
 
 public class Main {
