@@ -3,7 +3,7 @@ package doencometro.Interfaces;
 import javax.swing.*;
 
 import doencometro.Ocorrencia.Ocorrencia;
-import doencometro.banco.Sql;
+import doencometro.Banco.Sql;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

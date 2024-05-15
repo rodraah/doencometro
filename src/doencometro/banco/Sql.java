@@ -1,4 +1,4 @@
-package doencometro.banco;
+package doencometro.Banco;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

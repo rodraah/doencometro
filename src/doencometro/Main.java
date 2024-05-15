@@ -6,9 +6,9 @@ import com.formdev.flatlaf.FlatLightLaf;
 import java.sql.Connection;
 
 import doencometro.Interfaces.TelaLogin;
-import doencometro.banco.Conexao;
-import doencometro.banco.PrimeiroUso;
-import doencometro.banco.ImportarDoBanco;
+import doencometro.Banco.Conexao;
+import doencometro.Banco.PrimeiroUso;
+import doencometro.Banco.ImportarDoBanco;
 
 public class Main {
     public static void main(String args[]) throws Exception {

@@ -1,4 +1,4 @@
-package doencometro.banco;
+package doencometro.Banco;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

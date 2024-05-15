@@ -1,4 +1,4 @@
-package doencometro.banco;
+package doencometro.Banco;
 
 import java.sql.Statement;
 import java.sql.Connection;

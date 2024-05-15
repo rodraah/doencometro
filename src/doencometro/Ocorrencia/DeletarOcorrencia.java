@@ -1,6 +1,6 @@
 package doencometro.Ocorrencia;
 
-import doencometro.banco.Sql;
+import doencometro.Banco.Sql;
 
 public class DeletarOcorrencia {
     
