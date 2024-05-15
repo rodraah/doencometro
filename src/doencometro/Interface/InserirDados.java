@@ -1,4 +1,4 @@
-package doencometro.Interfaces;
+package doencometro.Interface;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -24,7 +24,7 @@ public class InserirDados extends JFrame {
     private JButton adicionarNovaOcorrencia;
     private JButton adicionarOcorrencia;
 
-    public InserirDados(boolean upa) {
+    public InserirDados(boolean admin) {
 
         setTitle("Cadastro de Cidade para Gripe");
         setSize(500, 400);
@@ -102,10 +102,11 @@ public class InserirDados extends JFrame {
                 JOptionPane.showMessageDialog(null, mensagem, "Cadastro Finalizado", JOptionPane.INFORMATION_MESSAGE);
                 // Se o usuário for da upa, fecha a janela
                 // Se não, abre os gráficos
-                if (upa) {
-                    dispose();
-                } else {
+                if (admin) {
                     Graficos.desenharInterface();
+                } else {
+                    TelaLogin.chamarInterface();
+                    dispose();
                 }
             }
         });
@@ -131,10 +132,10 @@ public class InserirDados extends JFrame {
         add(painelPrincipal, BorderLayout.CENTER);
     }
 
-    public static void desenharInterface(boolean upa){
+    public static void desenharInterface(boolean admin){
         SwingUtilities.invokeLater(() -> {
             InserirDados telaGripeCidade;
-            if (upa) {
+            if (admin) {
                 telaGripeCidade = new InserirDados(true);
             } else {
                 telaGripeCidade = new InserirDados(false);

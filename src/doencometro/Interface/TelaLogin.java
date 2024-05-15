@@ -1,4 +1,4 @@
-package doencometro.Interfaces;
+package doencometro.Interface;
 
 import javax.swing.*;
 
@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 
 public class TelaLogin extends JFrame {
 
-    private JTextField loginField; 
+    private JTextField usuarioField; 
     private JTextField senhaField; 
     private JButton proximoButton; 
 
@@ -26,18 +26,18 @@ public class TelaLogin extends JFrame {
         cadastroPanel.setLayout(new BoxLayout(cadastroPanel, BoxLayout.Y_AXIS));
         cadastroPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
-        JLabel loginLabel = new JLabel("Login:");
-        loginField = new JTextField();
+        JLabel usuarioLabel = new JLabel("Login:");
+        usuarioField = new JTextField();
         JLabel senhaLabel = new JLabel("Senha:");
         senhaField = new JPasswordField();
 
-        cadastroPanel.add(loginLabel);
-        cadastroPanel.add(loginField);
+        cadastroPanel.add(usuarioLabel);
+        cadastroPanel.add(usuarioField);
         cadastroPanel.add(senhaLabel);
         cadastroPanel.add(senhaField);
 
         Dimension textFieldDimension = new Dimension(200, 25);
-        loginField.setPreferredSize(textFieldDimension);
+        usuarioField.setPreferredSize(textFieldDimension);
         senhaField.setPreferredSize(textFieldDimension);
 
         proximoButton = new JButton("Próximo");
@@ -45,17 +45,17 @@ public class TelaLogin extends JFrame {
         proximoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String login = loginField.getText();
+                String login = usuarioField.getText();
                 String senha = senhaField.getText();
                 
                 String resultado = Autenticacao.logar(login, senha);
                 switch (resultado) {
                     case "admin":
-                        InserirDados.desenharInterface(false);
+                        InserirDados.desenharInterface(true);
                         dispose();
                         break;
                     case "upa":
-                        InserirDados.desenharInterface(true);
+                        InserirDados.desenharInterface(false);
                         dispose();
                         break;
                     case "dba":

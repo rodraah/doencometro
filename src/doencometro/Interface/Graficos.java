@@ -1,4 +1,4 @@
-package doencometro.Interfaces;
+package doencometro.Interface;
 
 import javax.swing.*;
 
@@ -31,7 +31,7 @@ public class Graficos extends JPanel {
     public Graficos() {
         setBackground(new Color(218,218,218));
 
-        this.add(new JLabel("Estados: "));
+        this.add(new JLabel("Situação: "));
         comboEstado = new JComboBox<String>(Ocorrencia.ESTADOS);
         this.add(comboEstado);
         // Quando o usuário interage com o combobox, desenha novamente a interface
@@ -84,7 +84,7 @@ public class Graficos extends JPanel {
 
         SwingUtilities.invokeLater(() -> {
             JFrame frame = new JFrame("Gráficos em Colunas em Java");
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             frame.setMinimumSize(new Dimension(620,500));
             frame.setSize(620, 500);
             frame.getContentPane().add(new Graficos());
