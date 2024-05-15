@@ -1,28 +1,19 @@
-package src.doencometro;
+package doencometro;
 
 import java.util.ArrayList;
 
 public class Doenca {
-    private static ArrayList<Doenca> todasAsDoencas = new ArrayList<Doenca>();
+    static ArrayList<Doenca> todasAsDoencas = new ArrayList<Doenca>();
+    private int id;
     private String nome;
-    private ArrayList<String> sintomas = new ArrayList<String>();
     
-    public Doenca(String nome) {
-        this.nome = nome;
+    public Doenca(int id, String nome) {
+        this.id         = id;
+        this.nome       = nome;
         todasAsDoencas.add(this);
     }
 
-    public void novoSintoma(String sintoma) {
-        sintomas.add(sintoma);
-    }
-
-    public void novosSintomas(String... sintomas) {
-        for (String sintoma : sintomas) {
-            this.sintomas.add(sintoma);
-        }
-    }
-
-    static Doenca acharDoencaPorNome(String nome) {
+    public static Doenca acharDoencaPorNome(String nome) {
         for (Doenca doenca: todasAsDoencas) {
             if (doenca.obterNome().equals(nome)) {
                 return doenca;
@@ -31,15 +22,14 @@ public class Doenca {
         return null;
     }
 
+    public int obterId() {
+        return this.id;
+    }
     public String obterNome() {
         return this.nome;
     }
 
-    public ArrayList<String> obterSintomas() {
-        return sintomas;
-    }
-    
-    static ArrayList<Doenca> obterTodasAsDoencas() {
-        return todasAsDoencas;
-    }
+    // static ArrayList<Doenca> obterTodasAsDoencas() {
+    //     return todasAsDoencas;
+    // }
 }

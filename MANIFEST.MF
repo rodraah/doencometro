@@ -1,5 +1,6 @@
 Manifest-Version: 1.0
 Created-By: 1.8.0_402 (Oracle Corporation)
-Main-Class: src.doencometro.Main
-Class-path: tema-flatlaf.jar
+Source-path: src
+Main-Class: doencometro/Main
+Class-path: lib/tema-flatlaf.jar lib/sqlite-jdbc.jar lib/slf4j-api-1.7.36.jar
 
